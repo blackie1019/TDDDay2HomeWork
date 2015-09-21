@@ -37,14 +37,32 @@ namespace TDD.Day2.Homework.Test
         public void Buy_2_Book_Vol_1_And_2_Fee_Should_Be_190()
         {
             //Scenario: 第一集買了一本，第二集也買了一本，價格應為100 * 2 * 0.95 = 190
+            var cart = BookShoppingCartService.NewCart();
 
             //Given 第一集買了 1 本
             //And 第二集買了 1 本
             //And 第三集買了 0 本
             //And 第四集買了 0 本
             //And 第五集買了 0 本
+            cart.AddItem(new Book
+            {
+                BookType = "Harry Potter Volume 1",
+                Name = "Harry Potter and the Philosopher's Stone",
+                Price = 100
+            });
+
+            cart.AddItem(new Book
+            {
+                BookType = "Harry Potter Volume 2",
+                Name = "Harry Potter and the Chamber of Secrets",
+                Price = 100
+            });
+
             //When 結帳
             //Then 價格應為 190 元
+            var expected = 190;
+            var actual = cart.CalculateAmount();
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
