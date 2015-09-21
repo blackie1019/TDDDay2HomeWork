@@ -6,18 +6,31 @@ namespace TDD.Day2.Homework.Test
     public class ShoppingCartTest
     {
         #region Basic
+
         [TestMethod]
         public void Buy_1_Book_Vol_1_Fee_Should_Be_100()
         {
             //Scenario: 第一集買了一本，其他都沒買，價格應為100*1=100元
+            var cart = BookShoppingCartService.NewCart();
 
             //Given 第一集買了 1 本
             //And 第二集買了 0 本
             //And 第三集買了 0 本
             //And 第四集買了 0 本
             //And 第五集買了 0 本
+
+            cart.AddItem(new Book
+            {
+                BookType = "Harry Potter Volume 1",
+                Name = "Harry Potter and the Philosopher's Stone",
+                Price = 100
+            });
+
             //When 結帳
             //Then 價格應為 100 元
+            var expected = 100;
+            var actual = cart.CalculateAmount();
+            Assert.AreEqual(expected,actual);
         }
 
         [TestMethod]

@@ -62,6 +62,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TDD.Day2.Homework\TDD.Day2.Homework.csproj">
+      <Project>{83be1cf4-a8a2-4007-966b-3449950ce406}</Project>
+      <Name>TDD.Day2.Homework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
