@@ -7,12 +7,7 @@ namespace TDD.Day2.Homework.Test
     {
         #region Basic
         [TestMethod]
-        public void Buy_1_Book_Vol_1()
-        {
-        }
-
-        [TestMethod]
-        public void Buy_1_Book_Vol_2_Fee_Should_Be_100()
+        public void Buy_1_Book_Vol_1_Fee_Should_Be_100()
         {
             //Scenario: 第一集買了一本，其他都沒買，價格應為100*1=100元
 
@@ -112,6 +107,20 @@ namespace TDD.Day2.Homework.Test
         #endregion
 
         #region Advanced
+
+        [TestMethod]
+        public void Buy_1_Book_Vol_2_Fee_Should_Be_100()
+        {
+            //Scenario: 第二集買了一本，其他都沒買，價格應為100*1=100元
+
+            //Given 第一集買了 1 本
+            //And 第二集買了 0 本
+            //And 第三集買了 0 本
+            //And 第四集買了 0 本
+            //And 第五集買了 0 本
+            //When 結帳
+            //Then 價格應為 100 元
+        }
 
         [TestMethod]
         public void Buy_2_Book_Vol_1_And_1_Fee_Should_Be_200()
