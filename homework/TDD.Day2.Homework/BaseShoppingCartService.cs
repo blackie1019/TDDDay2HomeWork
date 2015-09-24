@@ -1,25 +1,28 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace TDD.Day2.Homework
+﻿namespace TDD.Day2.Homework
 {
-    public class BaseShoppingCartService
-    {
-        private readonly List<BaseProduct> _productList;
+    using System.Collections.Generic;
+    using System.Linq;
 
-        public BaseShoppingCartService()
+    public class BaseShoppingCartService<T>
+    {
+        public BaseShoppingCartService(IShoppingCartStrategy<T> strategy)
         {
-            _productList = new List<BaseProduct>();
+            this.Products = new List<T>();
+            this.ShoppingCartStrategy = strategy;
         }
 
-        public void AddItem(BaseProduct product)
+        private IShoppingCartStrategy<T> ShoppingCartStrategy { get; set; }
+
+        private IList<T> Products { get; set; } 
+
+        public void AddItem(T product)
         {
-            _productList.Add(product);
+            this.Products.Add(product);
         }
 
         public decimal CalculateAmount()
         {
-            return _productList.Sum(item => item.Price);
+            return this.ShoppingCartStrategy.DiscountAmount(this.Products);
         }
     }
 }
