@@ -12,7 +12,7 @@ namespace TDD.Day2.Homework
             decimal result = 0;
             var bookGroups = this.SeparateBookGroup(books);
 
-            //Five different books amount
+            //Five different bookGroups amount
             foreach (var bookGroup in bookGroups)
             {
                 result += ((int)bookGroup.Key) * bookGroup.Value;
@@ -31,18 +31,51 @@ namespace TDD.Day2.Homework
                                      { VolumeGroupEnum.Group4, 0 },
                                      { VolumeGroupEnum.Group5, 0 }
                                  };
+            var tempBookGroups = new List<List<string>>();
 
             foreach (var book in books)
             {
-                bookGroups[VolumeGroupEnum.Group1] += 1;
+                var isNotExist = true;
+                if (tempBookGroups.Count > 0)
+                {
+                    foreach (var tempBookGroup in tempBookGroups)
+                    {
+                        if (tempBookGroup.All(name => name != book.BookType))
+                        {
+                            tempBookGroup.Add(book.BookType);
+                            isNotExist = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (isNotExist)
+                {
+                    tempBookGroups.Add(new List<string> { book.BookType });
+                }
             }
 
-            // VolumeGroupEnum.Group1;
-            // VolumeGroupEnum.Group2;
-            // VolumeGroupEnum.Group3;
-            // VolumeGroupEnum.Group4;
-            // VolumeGroupEnum.Group5;
-
+            foreach (var tempBookGroup in tempBookGroups)
+            {
+                switch (tempBookGroup.Count)
+                {
+                    case 1:
+                        bookGroups[VolumeGroupEnum.Group1] += 1;
+                        break;
+                    case 2:
+                        bookGroups[VolumeGroupEnum.Group2] += 1;
+                        break;
+                    case 3:
+                        bookGroups[VolumeGroupEnum.Group3] += 1;
+                        break;
+                    case 4:
+                        bookGroups[VolumeGroupEnum.Group4] += 1;
+                        break;
+                    case 5:
+                        bookGroups[VolumeGroupEnum.Group5] += 1;
+                        break;
+                }
+            }
 
             return bookGroups;
         }
