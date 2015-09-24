@@ -1,6 +1,6 @@
 ﻿namespace TDD.Day2.Homework
 {
-    public enum VolumeGroupEnum
+    public enum VolumeGroupTypeEnum
     {
         Group1 = 100,
 

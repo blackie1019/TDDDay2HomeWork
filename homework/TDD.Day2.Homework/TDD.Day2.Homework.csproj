@@ -47,7 +47,8 @@
     <Compile Include="IShoppingCartStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BookShoppingCartService.cs" />
-    <Compile Include="VolumeGroupEnum.cs" />
+    <Compile Include="VolumeGroup.cs" />
+    <Compile Include="VolumeGroupTypeEnum.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
