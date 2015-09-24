@@ -1,5 +1,4 @@
-﻿
-namespace TDD.Day2.Homework
+﻿namespace TDD.Day2.Homework
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -9,14 +8,10 @@ namespace TDD.Day2.Homework
         public decimal DiscountAmount(IList<Book> books)
         {
             // decimal result = books.Sum(book => book.Price);
-            decimal result = 0;
             var bookGroups = this.SeparateBookGroup(books);
 
-            //Five different bookGroups amount
-            foreach (var bookGroup in bookGroups)
-            {
-                result += ((int)bookGroup.Key) * bookGroup.Value;
-            }
+            // Five different bookGroups amount
+            var result = this.CalculateAmountByVolumeGroups(bookGroups);
                
             return result;
         }
@@ -78,6 +73,34 @@ namespace TDD.Day2.Homework
             }
 
             return bookGroups;
+        }
+
+        private decimal CalculateAmountByVolumeGroups(Dictionary<VolumeGroupEnum, int> bookGroups)
+        {
+            decimal result = 0;
+            foreach (var bookGroup in bookGroups)
+            {
+                var amountWithoutQuantity = ((int)bookGroup.Key) * bookGroup.Value;
+                switch (bookGroup.Key)
+                {
+                    case VolumeGroupEnum.Group1:
+                        result += amountWithoutQuantity;
+                        break;
+                    case VolumeGroupEnum.Group2:
+                        result += amountWithoutQuantity * 2;
+                        break;
+                    case VolumeGroupEnum.Group3:
+                        result += amountWithoutQuantity * 3;
+                        break;
+                    case VolumeGroupEnum.Group4:
+                        result += amountWithoutQuantity * 4;
+                        break;
+                    case VolumeGroupEnum.Group5:
+                        result += amountWithoutQuantity * 5;
+                        break;
+                }
+            }
+            return result;
         }
     }
 }
