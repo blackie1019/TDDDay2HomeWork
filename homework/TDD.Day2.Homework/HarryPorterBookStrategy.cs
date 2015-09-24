@@ -12,24 +12,38 @@ namespace TDD.Day2.Homework
             decimal result = 0;
             var bookGroups = this.SeparateBookGroup(books);
 
+            //Five different books amount
+            foreach (var bookGroup in bookGroups)
+            {
+                result += ((int)bookGroup.Key) * bookGroup.Value;
+            }
+               
             return result;
         }
 
-        private Dictionary<string, int> SeparateBookGroup(IList<Book> books)
+        private Dictionary<VolumeGroupEnum, int> SeparateBookGroup(IList<Book> books)
         {
-            var bookGroups = new Dictionary<string, int>();
+            var bookGroups = new Dictionary<VolumeGroupEnum, int>
+                                 {
+                                     { VolumeGroupEnum.Group1, 0 },
+                                     { VolumeGroupEnum.Group2, 0 },
+                                     { VolumeGroupEnum.Group3, 0 },
+                                     { VolumeGroupEnum.Group4, 0 },
+                                     { VolumeGroupEnum.Group5, 0 }
+                                 };
+
             foreach (var book in books)
             {
-                if (bookGroups.Any(x => x.Key == book.BookType))
-                {
-                    var bookGroup = bookGroups.First(x => x.Key == book.BookType);
-                    bookGroups[book.BookType] = bookGroup.Value + 1;
-                }
-                else
-                {
-                    bookGroups.Add(book.BookType, 1);
-                }
+                bookGroups[VolumeGroupEnum.Group1] += 1;
             }
+
+            // VolumeGroupEnum.Group1;
+            // VolumeGroupEnum.Group2;
+            // VolumeGroupEnum.Group3;
+            // VolumeGroupEnum.Group4;
+            // VolumeGroupEnum.Group5;
+
+
             return bookGroups;
         }
     }
