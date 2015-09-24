@@ -2,7 +2,6 @@
 {
     public class BookShoppingCartService : BaseShoppingCartService<Book>
     {
-
         public BookShoppingCartService(HarryPorterBookStrategy strategy)
             : base(strategy)
         {

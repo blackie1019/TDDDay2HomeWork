@@ -11,7 +11,6 @@
     [TestClass]
     [SuppressMessage("ReSharper", "CommentTypo")]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-
     public class ShoppingCartTest
     {
         [TestMethod]
@@ -186,25 +185,20 @@
             // And 第五集買了 0 本
             cart.AddItem(
                 new Book
-                {
-                    BookType = "Harry Potter Volume 1",
-                    Name = "Harry Potter and the Philosopher's Stone",
-                    Price = 100
-                });
+                    {
+                        BookType = "Harry Potter Volume 1",
+                        Name = "Harry Potter and the Philosopher's Stone",
+                        Price = 100
+                    });
             cart.AddItem(
                 new Book
-                {
-                    BookType = "Harry Potter Volume 2",
-                    Name = "Harry Potter and the Chamber of Secrets",
-                    Price = 100
-                });
+                    {
+                        BookType = "Harry Potter Volume 2",
+                        Name = "Harry Potter and the Chamber of Secrets",
+                        Price = 100
+                    });
             cart.AddItem(
-                new Book
-                {
-                    BookType = "Harry Potter Volume 3",
-                    Name = "Harry Potter Quidditch World Cup",
-                    Price = 100
-                });
+                new Book { BookType = "Harry Potter Volume 3", Name = "Harry Potter Quidditch World Cup", Price = 100 });
 
             // When 結帳
             // Then 價格應為 270 元
@@ -262,23 +256,28 @@
             // And 第四集買了 1 本
             // And 第五集買了 0 本
             cart.AddItem(
-    new Book
-    {
-        BookType = "Harry Potter Volume 1",
-        Name = "Harry Potter and the Philosopher's Stone",
-        Price = 100
-    });
+                new Book
+                    {
+                        BookType = "Harry Potter Volume 1",
+                        Name = "Harry Potter and the Philosopher's Stone",
+                        Price = 100
+                    });
             cart.AddItem(
                 new Book
-                {
-                    BookType = "Harry Potter Volume 2",
-                    Name = "Harry Potter and the Chamber of Secrets",
-                    Price = 100
-                });
+                    {
+                        BookType = "Harry Potter Volume 2",
+                        Name = "Harry Potter and the Chamber of Secrets",
+                        Price = 100
+                    });
             cart.AddItem(
                 new Book { BookType = "Harry Potter Volume 3", Name = "Harry Potter Quidditch World Cup", Price = 100 });
             cart.AddItem(
-                new Book { BookType = "Harry Potter Volume 4", Name = "Harry Potter and the Prisoner of Azkaban", Price = 100 });
+                new Book
+                    {
+                        BookType = "Harry Potter Volume 4",
+                        Name = "Harry Potter and the Prisoner of Azkaban",
+                        Price = 100
+                    });
 
             // When 結帳
             // Then 價格應為 320 元

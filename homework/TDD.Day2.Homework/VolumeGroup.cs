@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace TDD.Day2.Homework
+﻿namespace TDD.Day2.Homework
 {
+    #region
+
+    using System.Collections.Generic;
+    using System.Linq;
+
+    #endregion
+
     public class VolumeGroup
     {
         public VolumeGroup(VolumeGroupTypeEnum type)
@@ -11,14 +15,16 @@ namespace TDD.Day2.Homework
             this.Books = new List<Book>();
         }
 
-        public List<Book> Books { get; set; }
-        public VolumeGroupTypeEnum VolumeGroupType { get; set; }
         public decimal Amount
         {
             get
             {
-                return Books.Sum(book => book.Price) * (int)this.VolumeGroupType / 100;
+                return this.Books.Sum(book => book.Price) * (int)this.VolumeGroupType / 100;
             }
         }
+
+        public List<Book> Books { get; set; }
+
+        public VolumeGroupTypeEnum VolumeGroupType { get; set; }
     }
 }

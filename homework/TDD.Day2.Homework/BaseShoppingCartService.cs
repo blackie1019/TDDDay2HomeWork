@@ -1,7 +1,10 @@
 ﻿namespace TDD.Day2.Homework
 {
+    #region
+
     using System.Collections.Generic;
-    using System.Linq;
+
+    #endregion
 
     public class BaseShoppingCartService<T>
     {
@@ -11,9 +14,9 @@
             this.ShoppingCartStrategy = strategy;
         }
 
-        private IShoppingCartStrategy<T> ShoppingCartStrategy { get; set; }
+        private IList<T> Products { get; set; }
 
-        private IList<T> Products { get; set; } 
+        private IShoppingCartStrategy<T> ShoppingCartStrategy { get; set; }
 
         public void AddItem(T product)
         {

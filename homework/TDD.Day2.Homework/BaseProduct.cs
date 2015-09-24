@@ -3,6 +3,7 @@
     public class BaseProduct
     {
         public string Name;
+
         public decimal Price;
     }
 }
